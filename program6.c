@@ -1,99 +1,60 @@
+// write a program which cheak wheather number is even or odd
+
 #include<stdio.h>
-#include<stdlib.h>
-
-struct node
-{
-    int data;
-    struct node *next;
-};
-
-typedef struct node NODE;
-typedef struct node* PNODE;
-typedef struct node** PPNODE;
+#include<stdbool.h>
 
 ///////////////////////////////////////////////////
 
-void Display(PNODE Head)
-{    
-    printf("elements of linked list are: \n");
+// function name - cheakevenodd
+// input -         integer
+// output -        boolean
+// author -        siddharth satish kardile
+// date -          24/04/2023
+// update date -   no udate yet...
 
-    while(Head != NULL)
-    {
-        printf("%d\t",Head->data);
-        Head = Head->next;
-    }
-}
+///////////////////////////////////////////////////
 
-//////////////////////////////////////////////////
-
-int Count(PNODE Head)
+bool CheakEvenOdd(int ino)
 {
-    return 0;
-}
-
-/////////////////////////////////////////////////
-
-void InsertFirst(PPNODE Head,int no)
-{
-    PNODE newn = NULL;
-//  allocate memory for node
-    newn =(PNODE)malloc(sizeof(NODE));
-
-// initialise the node
-    newn->data = no;
-    newn->next = NULL;
-
-    if(*Head == NULL)   //LL is empty
+    if((ino%2) == 0)
     {
-        *Head = newn;
+        return true;
     }
-    else    // LL contains at least one node
+    else
     {
-        newn->next = *Head;
-        *Head = newn;
+        return false;
     }
 }
 
-/////////////////////////////////////////////////
+///////////////////////////////////////////////////
 
-void InsertLast(PPNODE Head,int no)
-{
-    PNODE newn = NULL;
-//  allocate memory for node
-    newn =(PNODE)malloc(sizeof(NODE));
+//          entry point Function class 
 
-// initialise the node
-    newn->data = no;
-    newn->next = NULL;
-
-    if(*Head == NULL)   //LL is empty
-    {
-        *Head = newn;
-    }
-    else    // LL contains at least one node
-    {
-    }
-}
-void InsertAtPos(PNODE Head,int no,int pos)
-{}
-
-void DeleteFirst(PNODE Head)
-{}
-
-void DeleteLast(PNODE Head)
-{}
-
-void DeleteAtPos(PNODE Head,int pos)
-{}
-
+///////////////////////////////////////////////////
 int main()
 {
-    PNODE first = NULL;
-    InsertFirst(&first,51);        //InsertFirst(60,51);
-    InsertFirst(&first,21);        //InsertFirst(60,21);
-    InsertFirst(&first,11);        //InsertFirst(60,11);
-    
-    Display(first);
+    int ivalue = 0;               //variable to accept input 
+    bool bret = false;            //variable to accept return value
+
+    printf("\n please enter number to cheak wheather it is even or odd : ");
+    scanf("%d",&ivalue);
+
+    bret = CheakEvenOdd(ivalue);  //function call 
+
+    if(bret == true)
+    {
+        printf("%d is even number\n",ivalue);
+    }
+    else
+    {
+        printf("%d is odd number\n",ivalue);
+    }
     return 0; 
 }
 
+
+/*
+    11*2
+    11/2
+    11%2
+*/

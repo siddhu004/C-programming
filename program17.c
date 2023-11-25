@@ -1,59 +1,16 @@
 #include<stdio.h>
-#include<stdlib.h>
 
-typedef struct Node
+void display()
 {
-    int data;
-    struct Node *next;
-    struct Node *prev;           // #
-}NODE,*PNODE,**PPNODE;
-
-////////////////////////////////////////////////
-
-void InsertFirst(PPNODE Head,int no)
-{}
-
-////////////////////////////////////////////////
-
-void InsertLast(PPNODE Head,int no)
-{}
-
-////////////////////////////////////////////////
-
-void InsertAtPos(PPNODE Head,int no,int ipos)
-{}
-
-////////////////////////////////////////////////
-
-void DeleteFirst(PPNODE Head)
-{}
-
-////////////////////////////////////////////////
-
-void DeleteLast(PPNODE Head)
-{}
-
-////////////////////////////////////////////////
-
-void DeleteAtPos(PPNODE Head,int ipos)
-{}
-
-////////////////////////////////////////////////
-
-void display(PNODE Head)
-{}
-
-////////////////////////////////////////////////
-
-int count(PNODE Head)
-{
-    return 0;
+    int icnt=0;
+    for(icnt=1;icnt<=5;icnt++)
+    {
+        printf("%d\n",icnt);
+    }
 }
-
-////////////////////////////////////////////////
 
 int main()
 {
-    PNODE first = NULL;
+    display();
     return 0;
-}
+} 

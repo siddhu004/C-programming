@@ -1,102 +1,84 @@
-#include<stdio.h>
-#include<stdlib.h>
+////////////////////////////////////////////////////
+//
+// write a program which accept marks and 
+//           display the class accordingly
+//
+///////////////////////////////////////////////////
 
-struct node
-{
-    int data;
-    struct node *next;
-};
 
-typedef struct node NODE;
-typedef struct node* PNODE;
-typedef struct node** PPNODE;
+//////////////////////////////////////////////////
+//
+//    1 to 34   fail
+//    35 to 49  pass
+//    50 to 59  second
+//    60 to 74  first
+//    75 to 100 first class with distinction
+//
+///////////////////////////////////////////////////
+
 
 ///////////////////////////////////////////////////
 
-void Display(PNODE Head)
-{    
-    printf("elements of linked list are: \n");
+// function name - cheak class
+// input -         integer
+// output -        integer
+// author -        siddharth satish kardile
+// date -          06/05/2023
+// update date -   no udate yet...
 
-    while(Head != NULL)
-    {
-        printf("[%d] -> ",Head->data);
-        Head = Head->next;
-    }
-    printf("NULL");
-}
+///////////////////////////////////////////////////
 
-//////////////////////////////////////////////////
+#include<stdio.h>
 
-int Count(PNODE Head)
+// function add
+void CheakResult(float fmarks)
 {
-    return 0;
+    if((fmarks < 0.0f) || (fmarks > 100.0))
+    {
+        printf("\n invalid output");
+        printf("\n please enter the marks in between 0 to 100");
+        return;
+    }
+    
+    
+    if((fmarks >= 0.0f) && (fmarks < 35.00f))
+    {
+        printf("\n you are failed");
+    }
+      else if((fmarks >= 35.00f) && (fmarks < 50.00f))
+    {
+        printf("\n you got pass class ");
+    }
+      else if((fmarks>= 50.0f) && (fmarks < 60.0f))
+    {
+        printf("\n you got second class ");
+    }
+    else if((fmarks>= 60.0f) && (fmarks < 75.0f))
+    {
+        printf("\n you got first class ");
+    } 
+    else if((fmarks >= 75.0f) && (fmarks <= 100.0f))
+    {
+        printf("\n you got first class with distinction");
+    }
+    
+    
+    
 }
-
-/////////////////////////////////////////////////
-
-void InsertFirst(PPNODE Head,int no)
-{
-    PNODE newn = NULL;
-//  allocate memory for node
-    newn =(PNODE)malloc(sizeof(NODE));
-
-// initialise the node
-    newn->data = no;
-    newn->next = NULL;
-
-    if(*Head == NULL)   //LL is empty
-    {
-        *Head = newn;
-    }
-    else    // LL contains at least one node
-    {
-        newn->next = *Head;
-        *Head = newn;
-    }
-}
-
-/////////////////////////////////////////////////
-
-void InsertLast(PPNODE Head,int no)
-{
-    PNODE newn = NULL;
-//  allocate memory for node
-    newn =(PNODE)malloc(sizeof(NODE));
-
-// initialise the node
-    newn->data = no;
-    newn->next = NULL;
-
-    if(*Head == NULL)   //LL is empty
-    {
-        *Head = newn;
-    }
-    else    // LL contains at least one node
-    {
-    }
-}
-void InsertAtPos(PNODE Head,int no,int pos)
-{}
-
-void DeleteFirst(PNODE Head)
-{}
-
-void DeleteLast(PNODE Head)
-{}
-
-void DeleteAtPos(PNODE Head,int pos)
-{}
+////////////////////////////////////////
+//
+//        entry point function
+//
+////////////////////////////////////////
 
 int main()
 {
-    PNODE first = NULL;
-    InsertFirst(&first,111);       //InsertFirst(60,111);
-    InsertFirst(&first,101);       //InsertFirst(60,101);
-    InsertFirst(&first,51);        //InsertFirst(60,51);
-    InsertFirst(&first,21);        //InsertFirst(60,21);
-    InsertFirst(&first,11);        //InsertFirst(60,11);
-    
-    Display(first);
-    return 0; 
-}
+    float fvalue = 0.0f;
 
+    printf("\n enter a percentage : ");
+    scanf("%f",&fvalue);
+
+    CheakResult(fvalue);
+
+    return 0;
+}

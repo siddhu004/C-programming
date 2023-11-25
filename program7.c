@@ -1,100 +1,81 @@
-#include<stdio.h>
-#include<stdlib.h>
+////////////////////////////////////////////////////
+//
+// take input from user and cheak wheather their two 
+// number are divisible by 3 and 5 
+//
+///////////////////////////////////////////////////
 
-struct node
-{
-    int data;
-    struct node *next;
-};
-
-typedef struct node NODE;
-typedef struct node* PNODE;
-typedef struct node** PPNODE;
 
 ///////////////////////////////////////////////////
 
-void Display(PNODE Head)
-{    
-    printf("elements of linked list are: \n");
+// function name - cheak divisible by 3 and 5
+// input -         integer
+// output -        boolean
+// author -        siddharth satish kardile
+// date -          06/05/2023
+// update date -   no udate yet...
 
-    while(Head != NULL)
-    {
-        printf("[%d] -> ",Head->data);
-        Head = Head->next;
-    }
-    printf("NULL");
-}
+///////////////////////////////////////////////////
 
-//////////////////////////////////////////////////
+#include<stdio.h>
+#include<stdbool.h>
 
-int Count(PNODE Head)
+// function add
+bool CheakDivisible(int ino)
 {
-    return 0;
-}
-
-/////////////////////////////////////////////////
-
-void InsertFirst(PPNODE Head,int no)
-{
-    PNODE newn = NULL;
-//  allocate memory for node
-    newn =(PNODE)malloc(sizeof(NODE));
-
-// initialise the node
-    newn->data = no;
-    newn->next = NULL;
-
-    if(*Head == NULL)   //LL is empty
+    if(((ino % 3) == 0) &&  ((ino % 5) == 0))
     {
-        *Head = newn;
+        return true;
     }
-    else    // LL contains at least one node
+    else
     {
-        newn->next = *Head;
-        *Head = newn;
+        return false;
     }
-}
+} 
 
-/////////////////////////////////////////////////
-
-void InsertLast(PPNODE Head,int no)
-{
-    PNODE newn = NULL;
-//  allocate memory for node
-    newn =(PNODE)malloc(sizeof(NODE));
-
-// initialise the node
-    newn->data = no;
-    newn->next = NULL;
-
-    if(*Head == NULL)   //LL is empty
-    {
-        *Head = newn;
-    }
-    else    // LL contains at least one node
-    {
-    }
-}
-void InsertAtPos(PNODE Head,int no,int pos)
-{}
-
-void DeleteFirst(PNODE Head)
-{}
-
-void DeleteLast(PNODE Head)
-{}
-
-void DeleteAtPos(PNODE Head,int pos)
-{}
+////////////////////////////////////////
+//
+//        entry point function
+//
+////////////////////////////////////////
 
 int main()
 {
-    PNODE first = NULL;
-    InsertFirst(&first,51);        //InsertFirst(60,51);
-    InsertFirst(&first,21);        //InsertFirst(60,21);
-    InsertFirst(&first,11);        //InsertFirst(60,11);
-    
-    Display(first);
-    return 0; 
+    int no;
+    bool bret=false;
+
+    printf("\n enter a number : ");
+    scanf("%d",&no);
+
+    bret=CheakDivisible(no);
+
+    if(bret==true)
+    {
+        printf("\n %d is a divisible by 3 and 5",no);
+    }
+    else
+    {
+        printf("\n %d is not divisible by 3 and 5",no);
+    }
+
+    return 0;
 }
 
+/*
+
+Logical operators
+
+1: Logical AND &&
+2: Logical OR  ||
+
+
+---------------------------------------------
+Expression1     Expression2      &&     ||
+---------------------------------------------
+true            true            true    true
+true            false           false   true
+false           true            false   false
+false           false           false   true
+---------------------------------------------
+
+*/ 
