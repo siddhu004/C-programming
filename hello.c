@@ -1,8 +1,12 @@
-#include<stdio.h>
-int j=21;
-int arr[4]={10,20,30,40};
 
-void fun()
+/*
+ name :- kardile siddharth satish
+ code :- basic hello world program
+*/
+
+#include<stdio.h>
+int main()
 {
-    printf("inside fun");
+    printf("hello world...\n");
+    return 0;
 }
